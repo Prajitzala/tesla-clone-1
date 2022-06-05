@@ -1,20 +1,25 @@
 import React from "react";
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
 
 function Section(props) {
   return (
     <Wrap bgImage={props.backgroundImg}>
-      <ItemText>
-        <h1>{props.title}</h1>
-        <p>{props.description}</p>
-      </ItemText>
+      <Fade bottom>
+        <ItemText>
+          <h1>{props.title}</h1>
+          <p>{props.description}</p>
+        </ItemText>
+      </Fade>
       <Buttons>
-        <ButtonGroup>
-          <LeftButton>{props.leftBtnText}</LeftButton>
-          {props.rightBtnText && (
-            <RightButton>{props.rightBtnText}</RightButton>
-          )}
-        </ButtonGroup>
+        <Fade bottom>
+          <ButtonGroup>
+            <LeftButton>{props.leftBtnText}</LeftButton>
+            {props.rightBtnText && (
+              <RightButton>{props.rightBtnText}</RightButton>
+            )}
+          </ButtonGroup>
+        </Fade>
         <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
     </Wrap>
@@ -40,6 +45,17 @@ const Wrap = styled.div`
 const ItemText = styled.div`
   padding-top: 15vh;
   text-align: center;
+
+  h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  p {
+    font-weight: 400;
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -51,7 +67,7 @@ const ButtonGroup = styled.div`
 `;
 
 const LeftButton = styled.div`
-  background-color: rgba(23, 26, 32, 0.8);
+  background-color: #000;
   height: 40px;
   width: 256px;
   color: #fff;
@@ -59,7 +75,7 @@ const LeftButton = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 100px;
-  opacity: 0.85;
+
   text-transform: uppercase;
   font-size: 12px;
   cursor: pointer;
@@ -67,8 +83,8 @@ const LeftButton = styled.div`
 `;
 
 const RightButton = styled(LeftButton)`
-  background: #fff;
-  opacity: 0.65;
+  background: rgba(231, 231, 229, 255);
+
   color: #000;
 `;
 
